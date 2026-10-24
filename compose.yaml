@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: my-postgres-db
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+      
+      
+  app:
+    build: .
+    container_name: my-todo-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
