@@ -11,7 +11,9 @@ services:
   app:
     build: .
     container_name: my-todo-container
+    environment:
+      - PYTHONUNBUFFERED=1
     ports:
-      - "8080:8080"
+      - "8080:8000"
     depends_on:
       - db
